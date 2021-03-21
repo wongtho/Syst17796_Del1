@@ -7,19 +7,20 @@
  */
 
 package highvslow;
-
+    
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  */
 public abstract class Player {
-    private String playerID; //the unique ID for this player
+    //the unique ID for this player
+    private String playerID;
     
     /**
      * A constructor that allows you to set the player's unique ID
      * @param name the unique ID to assign to this player.
      */
     public Player(String name) {
-        playerID= name;
+        playerID = name;
     }
     
     /**
