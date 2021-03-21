@@ -33,10 +33,14 @@ public class HighvsLow {
         //print out
         //title
         System.out.println("Title of this game is: " + HighvsLow.getGameName());
+        //include instructions
+        
         //players
         for(int i = 0; i < HighvsLow.getPlayers().size(); i++) {
             System.out.println("Player " + (i + 1) + " is: " + HighvsLow.getPlayers().get(i).getPlayerID());
         }
+        //start Game
+        HighvsLow.play();
     }
     
 }

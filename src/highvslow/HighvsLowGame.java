@@ -18,7 +18,12 @@ public class HighvsLowGame extends Game {
     
     @Override
     public void play() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //begin game
+        System.out.println("Begin Game!!!");
+        //Create a full deck of 52 cards
+        GroupOfCards dealerHand = new GroupOfCards(52);
+        dealerHand.fullDeck();
+        //System.out.println(dealerHand.showCards());
     }
 
     @Override

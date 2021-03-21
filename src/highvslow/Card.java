@@ -12,25 +12,13 @@ package highvslow;
  * @author Thomas Wong
  */
 public abstract class Card {
-    //create Standard deck of 52 card properties
-    //implemented from ICE 1 and
-    public enum Suit {CLUBS, DIAMONDS, HEARTS, SPADE};
-    public enum Value{ACE, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, JACK, QUEEN, KING};
-    private final Suit suit;
-    private final Value value;
-    //constructor method
-    public Card(Suit s, Value gVal) {
-       suit = s;
-       value = gVal;
+    //default modifier for child classes
+    public Card () {
+        
     }
-    //getter methods
-    public Value getValue() {
-            return this.value;
-    }
-    public Suit getSuit() {
-            return this.suit;
-    }
-    @Override
-    public abstract String toString();
+    /**
+     * Students should implement this method for their specific children classes 
+     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
+     */
     
 }

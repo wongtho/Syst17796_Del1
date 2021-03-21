@@ -11,7 +11,7 @@ public class StandardCardDeck extends Card {
     //create Standard deck of 52 card properties
     //implemented from ICE 1 and 2
     public enum Suit {CLUBS, DIAMONDS, HEARTS, SPADE};
-    public enum Value{ACE, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, JACK, QUEEN, KING};
+    public enum Value{ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
     private final Suit suit;
     private final Value value;
     //constructor method
