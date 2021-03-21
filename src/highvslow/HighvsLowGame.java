@@ -26,9 +26,26 @@ public class HighvsLowGame extends Game {
         //generate full deck
         dealerHand.fullDeck();
         //shuffle dealerHand
-        dealerHand.shuffle();        
+        dealerHand.shuffle();
+        //display cards in dealer's hands
         for(int i = 0; i < dealerHand.getSize(); i++) {
-             System.out.println("Card number " + (i+1) + " has weight: " + dealerHand.showCards().get(i).getCardWeight());
+            System.out.println("Card number " + (i+1) + " has weight: " + dealerHand.showCards().get(i).getCardWeight());
+        }
+        //each player starts with 5 cards
+        GroupOfCards player1Hand = new GroupOfCards(5);
+        GroupOfCards player2Hand = new GroupOfCards(5);
+        //distribute cards
+        for(int i = 0; i < 5; i++) {
+            player1Hand.draw(dealerHand.deal(0));
+            player2Hand.draw(dealerHand.deal(0));
+        }
+        System.out.println("----------------------------");
+        for(int i = 0; i < player1Hand.getSize(); i++){
+            System.out.println("Card number " + (i+1) + " has weight: " + player1Hand.showCards().get(i).getCardWeight());
+        }
+        System.out.println("----------------------------");
+        for(int i = 0; i < player1Hand.getSize(); i++){
+            System.out.println("Card number " + (i+1) + " has weight: " + player2Hand.showCards().get(i).getCardWeight());
         }
     }
 
