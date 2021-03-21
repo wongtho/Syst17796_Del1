@@ -8,8 +8,17 @@
 package highvslow;
 
 //inherit from Game class
+import java.util.Random;
 
 public class HighvsLowGame extends Game {
+    //Create a full deck of 52 cards for the dealer
+    GroupOfCards dealerHand = new GroupOfCards(52);
+    //each player starts with 5 cards
+    GroupOfCards player1Hand = new GroupOfCards(5);
+    GroupOfCards player2Hand = new GroupOfCards(5);
+    //create match pile of max 3 cards; 1 each from dealer, player1 and player2
+    GroupOfCards centerHand = new GroupOfCards(52);
+    
     
     //constructor
     public HighvsLowGame (String gameName) {
@@ -21,8 +30,6 @@ public class HighvsLowGame extends Game {
     public void play() {
         //begin game
         System.out.println("Begin Game!!!");
-        //Create a full deck of 52 cards
-        GroupOfCards dealerHand = new GroupOfCards(52);
         //generate full deck
         dealerHand.fullDeck();
         //shuffle dealerHand
@@ -31,9 +38,6 @@ public class HighvsLowGame extends Game {
         for(int i = 0; i < dealerHand.getSize(); i++) {
             System.out.println("Card number " + (i+1) + " has weight: " + dealerHand.showCards().get(i).getCardWeight());
         }
-        //each player starts with 5 cards
-        GroupOfCards player1Hand = new GroupOfCards(5);
-        GroupOfCards player2Hand = new GroupOfCards(5);
         //distribute cards
         for(int i = 0; i < 5; i++) {
             player1Hand.draw(dealerHand.deal(0));
@@ -47,8 +51,14 @@ public class HighvsLowGame extends Game {
         for(int i = 0; i < player1Hand.getSize(); i++){
             System.out.println("Card number " + (i+1) + " has weight: " + player2Hand.showCards().get(i).getCardWeight());
         }
+        //dealer places one card in the center pile
+        centerHand.draw(dealerHand.deal(0));
+        //player add their cards
+        Random rand = new Random();
+        centerHand.draw(player1Hand.deal(rand.nextInt(5)));
+        centerHand.draw(player2Hand.deal(rand.nextInt(5)));
     }
-
+    
     @Override
     public void declareWinner() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
