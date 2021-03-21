@@ -16,14 +16,20 @@ public class HighvsLowGame extends Game {
         super(gameName);
     }
     
+    //play method will be step by step
     @Override
     public void play() {
         //begin game
         System.out.println("Begin Game!!!");
         //Create a full deck of 52 cards
         GroupOfCards dealerHand = new GroupOfCards(52);
+        //generate full deck
         dealerHand.fullDeck();
-        //System.out.println(dealerHand.showCards());
+        //shuffle dealerHand
+        dealerHand.shuffle();        
+        for(int i = 0; i < dealerHand.getSize(); i++) {
+             System.out.println("Card number " + (i+1) + " has weight: " + dealerHand.showCards().get(i).getCardWeight());
+        }
     }
 
     @Override

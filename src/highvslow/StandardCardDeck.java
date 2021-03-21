@@ -19,7 +19,71 @@ public class StandardCardDeck extends Card {
        super();
        suit = s;
        value = gVal;
+       setCardWeight();
     }
+    public void setCardWeight() {
+        int multiplier = 0;
+        int number = 0;
+        //set multiplier
+        switch(suit) {
+            case CLUBS:
+                multiplier = 0;
+                break;
+            case DIAMONDS:
+                multiplier = 13;
+                break;
+            case HEARTS:
+                multiplier = 26;
+                break;
+            case SPADE:
+                multiplier = 39;
+                break;
+        }
+        //set number
+        switch(value) {
+            case ACE:
+                number = 1;
+                break;
+            case TWO:
+                number = 2;
+                break;
+            case THREE:
+                number = 3;
+                break;
+            case FOUR:
+                number = 4;
+                break;
+            case FIVE:
+                number = 5;
+                break;
+            case SIX:
+                number = 6;
+                break;
+            case SEVEN:
+                number = 7;
+                break;
+            case EIGHT:
+                number = 8;
+                break;
+            case NINE:
+                number = 9;
+                break;
+            case TEN:
+                number = 10;
+                break;
+            case JACK:
+                number = 11;
+                break;
+            case QUEEN:
+                number = 12;
+                break;
+            case KING:
+                number = 13;
+                break;
+        }
+        super.setCardWeight(multiplier, number);
+    }
+    
     //getter methods
     public Value getValue() {
             return this.value;

@@ -12,9 +12,19 @@ package highvslow;
  * @author Thomas Wong
  */
 public abstract class Card {
-    //default modifier for child classes
+    //card value is equal to card number + suit where Clubs = 1 Diamonds = 2, Hearts = 3 and Spades = 4
+    //Jack = 11, Queen = 12, King = 13
+    private int cardWeight;
+    
     public Card () {
-        
+        cardWeight = 0;
+    }
+    
+    public void setCardWeight(int multiplier, int number) {
+        this.cardWeight = multiplier + number;
+    }
+    public int getCardWeight(){
+        return cardWeight;
     }
     /**
      * Students should implement this method for their specific children classes 
