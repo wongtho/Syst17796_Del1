@@ -22,6 +22,7 @@ public class GroupOfCards {
     //constuctor
     public GroupOfCards(int givenSize){
         size = givenSize;
+        cards = new ArrayList<>();
     }
     
     /**
@@ -34,6 +35,20 @@ public class GroupOfCards {
     
     public void shuffle() {
         Collections.shuffle(cards);
+    }
+    
+    //Create full deck
+    public void fullDeck () {
+        //implemented from ICE 1 and 2
+        //for-each loop
+        //loop through the number of suits
+        for(StandardCardDeck.Suit s: StandardCardDeck.Suit.values()) {
+            //loop through the number of values
+            for(StandardCardDeck.Value v: StandardCardDeck.Value.values()) {
+                //add new card to arrayList
+                cards.add(new StandardCardDeck(s, v));
+            }
+        }
     }
 
     /**
