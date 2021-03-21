@@ -35,6 +35,7 @@ public class HighvsLowGame extends Game {
         //keep on playing until dealer can no longer deal enough cards for player and center pile
         while(dealerHand.getSize() > 2) {
             nextRound();
+            showHands();
         }
         //display winner
         declareWinner();
@@ -64,6 +65,7 @@ public class HighvsLowGame extends Game {
         System.out.print("Round finished.");
         //display score
         System.out.println(" The Score: Player 1: " + super.getPlayers().get(0).getScore() + " ----- Player 2: " + super.getPlayers().get(1).getScore());
+        System.out.println();
     }
     /**
      * compare method check who won this round
@@ -133,23 +135,32 @@ public class HighvsLowGame extends Game {
             System.out.println("Card number " + (i+1) + ": " + player2Hand.showCards().get(i).getCardID() + " has weight: " + player2Hand.showCards().get(i).getCardWeight());
         }
     }
-    
+    public void showHands() {
+        System.out.print(super.getPlayers().get(0).getPlayerID() + "'s current hand is in weights: ");
+        for(int i = 0; i < player1Hand.getSize(); i++) {
+            System.out.print(player1Hand.showCards().get(i).getCardWeight() + "  ");
+        }
+        System.out.print("\n" + super.getPlayers().get(1).getPlayerID() + "'s current hand is in weights: ");
+        for(int i = 0; i < player1Hand.getSize(); i++) {
+            System.out.print(player2Hand.showCards().get(i).getCardWeight() + "  ");
+        }
+    }
     @Override
     public void declareWinner() {
         //check winning conditions
         //if player one score is higher than player 2
         if(super.getPlayers().get(0).getScore() > super.getPlayers().get(1).getScore()) {
             //player 1 wins
-            System.out.println("You won player: " + super.getPlayers().get(0).getPlayerID());
+            System.out.println("\nYou won player: " + super.getPlayers().get(0).getPlayerID());
         }
         //else if player one is less than player 2
         else if(super.getPlayers().get(0).getScore() < super.getPlayers().get(1).getScore()) {
             //player 2 wins
-            System.out.println("You won player: " + super.getPlayers().get(1).getPlayerID());
+            System.out.println("\nYou won player: " + super.getPlayers().get(1).getPlayerID());
         }
         //else it is a tie
         else {
-            System.out.println("It is a tie.");
+            System.out.println("\nIt is a tie.");
         }
     }
     
