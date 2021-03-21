@@ -9,7 +9,6 @@ package highvslow;
 
 //inherit from Game class
 
-
 public class HighvsLowGame extends Game {
     
     //constructor
