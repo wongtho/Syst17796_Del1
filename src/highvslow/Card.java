@@ -12,24 +12,24 @@ package highvslow;
  * @author Thomas Wong
  */
 public abstract class Card {
-        //create Standard deck of 52 card properties
-        //implemented from ICE 1 and 2
-        public enum Suit {CLUBS, DIAMONDS, HEARTS, SPADE};
-        public enum Value{ACE, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, JACK, QUEEN, KING};
-        private final Suit suit;
-        private final Value value;
-        //constructor method
-        public Card(Suit s, Value gVal) {
-           suit = s;
-           value = gVal;
-        }
-        //getter methods
-	public Value getValue() {
-		return this.value;
-	}
-	public Suit getSuit() {
-		return this.suit;
-        }
+    //create Standard deck of 52 card properties
+    //implemented from ICE 1 and
+    public enum Suit {CLUBS, DIAMONDS, HEARTS, SPADE};
+    public enum Value{ACE, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, JACK, QUEEN, KING};
+    private final Suit suit;
+    private final Value value;
+    //constructor method
+    public Card(Suit s, Value gVal) {
+       suit = s;
+       value = gVal;
+    }
+    //getter methods
+    public Value getValue() {
+            return this.value;
+    }
+    public Suit getSuit() {
+            return this.suit;
+    }
     @Override
     public abstract String toString();
     
