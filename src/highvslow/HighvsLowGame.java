@@ -30,11 +30,14 @@ public class HighvsLowGame extends Game {
     public void play() {
         //begin game
         System.out.println("Begin Game!!!");
+        //set initial game conditions
         initalConditions();
         //keep on playing until dealer can no longer deal enough cards for player and center pile
         while(dealerHand.getSize() > 2) {
             nextRound();
         }
+        //display winner
+        declareWinner();
     }
     //plays a round
     public void nextRound() {
@@ -42,6 +45,7 @@ public class HighvsLowGame extends Game {
         centerHand.draw(dealerHand.deal(0));
         //player add their cards
         Random rand = new Random();
+        //draws a random card from 0 to 4 index
         centerHand.draw(player1Hand.deal(rand.nextInt(5)));
         centerHand.draw(player2Hand.deal(rand.nextInt(5)));
         //compare
@@ -55,7 +59,7 @@ public class HighvsLowGame extends Game {
         player2Hand.draw(dealerHand.deal(0));
         System.out.print("Round finished.");
         //display score
-        System.out.println("---- The Score is ------ Player 1: " + super.getPlayers().get(0).getScore() + " --- Player 2: " + super.getPlayers().get(1).getScore());
+        System.out.println(" The Score: Player 1: " + super.getPlayers().get(0).getScore() + " ----- Player 2: " + super.getPlayers().get(1).getScore());
     }
     /**
      * compare method check who won this round
@@ -98,27 +102,45 @@ public class HighvsLowGame extends Game {
         //shuffle dealerHand
         dealerHand.shuffle();
         //display cards in dealer's hands
+        System.out.println("Secret dealer cards: ");
         for(int i = 0; i < dealerHand.getSize(); i++) {
-            System.out.println("Card number " + (i+1) + " has weight: " + dealerHand.showCards().get(i).getCardID());
+            System.out.println("Card number " + (i+1) + ": " + dealerHand.showCards().get(i).getCardID() + " has weight: " + dealerHand.showCards().get(i).getCardWeight());
         }
         //distribute cards
         for(int i = 0; i < 5; i++) {
             player1Hand.draw(dealerHand.deal(0));
             player2Hand.draw(dealerHand.deal(0));
         }
-        System.out.println("----------------------------");
+        //reset hand size since draw increments by 1
+        player1Hand.setSize(5);
+        player2Hand.setSize(5);
+        System.out.println("Player 1, your initial hand is: --------------------");
         for(int i = 0; i < player1Hand.getSize(); i++){
-            System.out.println("Card number " + (i+1) + " has weight: " + player1Hand.showCards().get(i).getCardWeight());
+            System.out.println("Card number " + (i+1) + ": " + player1Hand.showCards().get(i).getCardID() + " has weight: " + player1Hand.showCards().get(i).getCardWeight());
         }
-        System.out.println("----------------------------");
+        System.out.println("Player 2, your initial hand is: --------------------");
         for(int i = 0; i < player2Hand.getSize(); i++){
-            System.out.println("Card number " + (i+1) + " has weight: " + player2Hand.showCards().get(i).getCardWeight());
+            System.out.println("Card number " + (i+1) + ": " + player2Hand.showCards().get(i).getCardID() + " has weight: " + player2Hand.showCards().get(i).getCardWeight());
         }
     }
     
     @Override
     public void declareWinner() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //check winning conditions
+        //if player one score is higher than player 2
+        if(super.getPlayers().get(0).getScore() > super.getPlayers().get(1).getScore()) {
+            //player 1 wins
+            System.out.println("You won player: " + super.getPlayers().get(0).getPlayerID());
+        }
+        //else if player one is less than player 2
+        else if(super.getPlayers().get(0).getScore() < super.getPlayers().get(1).getScore()) {
+            //player 2 wins
+            System.out.println("You won player: " + super.getPlayers().get(1).getPlayerID());
+        }
+        //else it is a tie
+        else {
+            System.out.println("It is a tie.");
+        }
     }
     
 }
