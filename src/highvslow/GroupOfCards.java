@@ -19,6 +19,7 @@ public class GroupOfCards {
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
     
+    //constuctor
     public GroupOfCards(int givenSize){
         size = givenSize;
     }
