@@ -43,11 +43,15 @@ public class HighvsLowGame extends Game {
     public void nextRound() {
         //dealer places one card in the center pile
         centerHand.draw(dealerHand.deal(0));
+        System.out.println();
+        System.out.println("Center Card is weight: " + centerHand.showCards().get(0).getCardWeight());
         //player add their cards
         Random rand = new Random();
         //draws a random card from 0 to 4 index
         centerHand.draw(player1Hand.deal(rand.nextInt(5)));
+        System.out.println(super.getPlayers().get(0).getPlayerID() + " deals card with weight: " + centerHand.showCards().get(1).getCardWeight());
         centerHand.draw(player2Hand.deal(rand.nextInt(5)));
+        System.out.println(super.getPlayers().get(1).getPlayerID() + " deals card with weight: " + centerHand.showCards().get(2).getCardWeight());
         //compare
         compare();
         //centerPile discards their hand
@@ -74,10 +78,12 @@ public class HighvsLowGame extends Game {
             if (centerHand.showCards().get(1).getCardWeight() > centerHand.showCards().get(2).getCardWeight()) {
                 //then player 1 wins 1 point
                 super.getPlayers().get(0).setWon();
+                System.out.println(super.getPlayers().get(0).getPlayerID() + " won this round.");
             }
             //else player2 card is greater, it must also be greater than dealer card
             else {
                 super.getPlayers().get(1).setWon();
+                System.out.println(super.getPlayers().get(1).getPlayerID() + " won this round.");
             }
             //player 1 and player 2 cards cannot be equal since all cards are unique.
         }
@@ -87,8 +93,12 @@ public class HighvsLowGame extends Game {
             if (centerHand.showCards().get(2).getCardWeight() > centerHand.showCards().get(0).getCardWeight()) {
                 //player 2 wins a point
                 super.getPlayers().get(1).setWon();
+                System.out.println(super.getPlayers().get(1).getPlayerID() + " won this round.");
             }
             //else both player have smaller cards
+            else {
+                System.out.println("Nobody won this round.");
+            }
         }
     }
     /**
@@ -102,10 +112,10 @@ public class HighvsLowGame extends Game {
         //shuffle dealerHand
         dealerHand.shuffle();
         //display cards in dealer's hands
-        System.out.println("Secret dealer cards: ");
-        for(int i = 0; i < dealerHand.getSize(); i++) {
-            System.out.println("Card number " + (i+1) + ": " + dealerHand.showCards().get(i).getCardID() + " has weight: " + dealerHand.showCards().get(i).getCardWeight());
-        }
+        System.out.println("Secret dealer cards: Uncomment below lines to see ");
+//        for(int i = 0; i < dealerHand.getSize(); i++) {
+//            System.out.println("Card number " + (i+1) + ": " + dealerHand.showCards().get(i).getCardID() + " has weight: " + dealerHand.showCards().get(i).getCardWeight());
+//        }
         //distribute cards
         for(int i = 0; i < 5; i++) {
             player1Hand.draw(dealerHand.deal(0));
