@@ -20,7 +20,9 @@ public class StandardCardDeck extends Card {
        suit = s;
        value = gVal;
        setCardWeight();
+       super.setCardID(value + " of " + suit);
     }
+
     public void setCardWeight() {
         int multiplier = 0;
         int number = 0;

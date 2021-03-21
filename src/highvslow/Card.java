@@ -14,6 +14,7 @@ package highvslow;
 public abstract class Card {
     //card value is equal to card number + suit where Clubs = 1 Diamonds = 2, Hearts = 3 and Spades = 4
     //Jack = 11, Queen = 12, King = 13
+    private String CardID;
     private int cardWeight;
     
     public Card () {
@@ -26,6 +27,15 @@ public abstract class Card {
     public int getCardWeight(){
         return cardWeight;
     }
+
+    public String getCardID() {
+        return CardID;
+    }
+
+    public void setCardID(String CardID) {
+        this.CardID = CardID;
+    }
+    
     /**
      * Students should implement this method for their specific children classes 
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.

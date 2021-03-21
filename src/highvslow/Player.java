@@ -14,6 +14,7 @@ package highvslow;
 public abstract class Player {
     //the unique ID for this player
     private String playerID;
+    private int score;
     
     /**
      * A constructor that allows you to set the player's unique ID
@@ -21,6 +22,7 @@ public abstract class Player {
      */
     public Player(String name) {
         playerID = name;
+        score = 0;
     }
     
     /**
@@ -36,6 +38,13 @@ public abstract class Player {
      */
     public void setPlayerID(String givenID) {
         playerID = givenID;
+    }
+    public int getScore() {
+        return score;
+    }
+
+    public void setWon() {
+        this.score++;
     }
     
     /**

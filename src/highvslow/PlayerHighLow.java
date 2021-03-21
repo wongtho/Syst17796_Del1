@@ -10,14 +10,14 @@ package highvslow;
 //inherit from Game class
 
 public class PlayerHighLow extends Player {
-    
     //conructor
     public PlayerHighLow (String name) {
         super(name);
+   
     }
     @Override
     public void play() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

@@ -41,7 +41,9 @@ public class GroupOfCards {
     //all actors can access this method
     public Card deal(int index) {
         Card tempCard = cards.get(index);
+        //remove first card
         cards.remove(index);
+        size--;
         return tempCard;
     }
     
@@ -49,6 +51,7 @@ public class GroupOfCards {
     //only players can draw card
     public void draw(Card card) {
         cards.add(card);
+        size++;
     }
     //Create full deck
     //used only by card dealer
