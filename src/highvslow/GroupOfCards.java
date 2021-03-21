@@ -37,7 +37,21 @@ public class GroupOfCards {
         Collections.shuffle(cards);
     }
     
+    //deal card
+    //all actors can access this method
+    public Card deal(int index) {
+        Card tempCard = cards.get(index);
+        cards.remove(index);
+        return tempCard;
+    }
+    
+    //draw card
+    //only players can draw card
+    public void draw(Card card) {
+        cards.add(card);
+    }
     //Create full deck
+    //used only by card dealer
     public void fullDeck () {
         //implemented from ICE 1 and 2
         //for-each loop
