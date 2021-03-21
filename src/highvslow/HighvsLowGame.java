@@ -34,8 +34,8 @@ public class HighvsLowGame extends Game {
         initalConditions();
         //keep on playing until dealer can no longer deal enough cards for player and center pile
         while(dealerHand.getSize() > 2) {
-            nextRound();
             showHands();
+            nextRound();
         }
         //display winner
         declareWinner();
