@@ -5,26 +5,30 @@
  *  Program: Deliverable 1 Game Class
  *  Due Date: March 21, 2021
  */
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
+
 package highvslow;
 
 import java.util.ArrayList;
 
 /**
- * The class that models your game. You should create a more specific
- * child of this class and instantiate the methods given.
- * @author dancye, 2018
+ * An abstract class that sets the template for all games
+ * Game Name
+ * Players
+ * Play method -> child class needed to further define game properties
+ * Declare winner
+ * @author Thomas Wong
  */
 public abstract class Game {
-    private final String gameName;//the title of the game
-    private ArrayList <Player> players;// the players of the game
+    //the title of the game
+    private final String gameName;
+    // the players of the game
+    private ArrayList <Player> players;
     
-    public Game(String givenName)
-    {
+    /**
+     * Constructor
+     * @param givenName; name of the game
+     */
+    public Game(String givenName) {
         gameName = givenName;
         players = new ArrayList();
     }
@@ -32,24 +36,22 @@ public abstract class Game {
     /**
      * @return the gameName
      */
-    public String getGameName() 
-    {
+    public String getGameName() {
         return gameName;
     }
     
      /**
      * @return the players of this game
      */
-    public ArrayList <Player> getPlayers() 
-    {
+    public ArrayList <Player> getPlayers() {
         return players;
     }
 
     /**
+     * sets the player names in game
      * @param players the players of this game
      */
-    public void setPlayers(ArrayList <Player> players) 
-    {
+    public void setPlayers(ArrayList <Player> players) {
         this.players = players;
     }
     
@@ -64,7 +66,5 @@ public abstract class Game {
      * player.
      */
     public abstract void declareWinner();
-
    
-    
 }//end class

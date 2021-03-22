@@ -5,11 +5,7 @@
  *  Program: Deliverable 1 Game Class
  *  Due Date: March 21, 2021
  */
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
+
 package highvslow;
 
 import java.util.ArrayList;
@@ -17,33 +13,59 @@ import java.util.Collections;
 
 /**
  * A concrete class that represents any grouping of cards for a Game.
- * HINT, you might want to subclass this more than once.
- * The group of cards has a maximum size attribute which is flexible for reuse.
- * @author dancye
  */
 public class GroupOfCards {
-   
     //The group of cards, stored in an ArrayList
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
     
-    public GroupOfCards(int givenSize)
-    {
+    //constuctor
+    public GroupOfCards(int givenSize){
         size = givenSize;
+        cards = new ArrayList<>();
     }
     
     /**
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public ArrayList<Card> showCards()
-    {
+    public ArrayList<Card> showCards(){
         return cards;
     }
     
-    public void shuffle()
-    {
+    public void shuffle() {
         Collections.shuffle(cards);
+    }
+    
+    //deal card
+    //all actors can access this method
+    public Card deal(int index) {
+        Card tempCard = cards.get(index);
+        //remove first card
+        cards.remove(index);
+        size--;
+        return tempCard;
+    }
+    
+    //draw card
+    //only players can draw card
+    public void draw(Card card) {
+        cards.add(card);
+        size++;
+    }
+    //Create full deck
+    //used only by card dealer
+    public void fullDeck () {
+        //implemented from ICE 1 and 2
+        //for-each loop
+        //loop through the number of suits
+        for(StandardCardDeck.Suit s: StandardCardDeck.Suit.values()) {
+            //loop through the number of values
+            for(StandardCardDeck.Value v: StandardCardDeck.Value.values()) {
+                //add new card to arrayList
+                cards.add(new StandardCardDeck(s, v));
+            }
+        }
     }
 
     /**
