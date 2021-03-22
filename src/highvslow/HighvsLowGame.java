@@ -50,6 +50,7 @@ public class HighvsLowGame extends Game {
         Random rand = new Random();
         //draws a random card from 0 to 4 index
         centerHand.draw(player1Hand.deal(rand.nextInt(5)));
+        //display current player hands
         System.out.println(super.getPlayers().get(0).getPlayerID() + " deals card with weight: " + centerHand.showCards().get(1).getCardWeight());
         centerHand.draw(player2Hand.deal(rand.nextInt(5)));
         System.out.println(super.getPlayers().get(1).getPlayerID() + " deals card with weight: " + centerHand.showCards().get(2).getCardWeight());
@@ -135,6 +136,7 @@ public class HighvsLowGame extends Game {
             System.out.println("Card number " + (i+1) + ": " + player2Hand.showCards().get(i).getCardID() + " has weight: " + player2Hand.showCards().get(i).getCardWeight());
         }
     }
+    //shows current hand of players
     public void showHands() {
         System.out.print(super.getPlayers().get(0).getPlayerID() + "'s current hand is in weights: ");
         for(int i = 0; i < player1Hand.getSize(); i++) {
@@ -145,6 +147,7 @@ public class HighvsLowGame extends Game {
             System.out.print(player2Hand.showCards().get(i).getCardWeight() + "  ");
         }
     }
+    //output final winner
     @Override
     public void declareWinner() {
         //check winning conditions
